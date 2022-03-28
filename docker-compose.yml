@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres
+    restart: always
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_db=root
+    ports:
+      - 5432:5432
+    volumes:
+      - pgdata:/docker-entrypoint-initdb.d/docker-database-initial.sql
+
+volumes:
+  pgdata:
+    driver: local
